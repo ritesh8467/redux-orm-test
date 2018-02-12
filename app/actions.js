@@ -1,56 +1,52 @@
 import {
-    SELECT_USER,
-    CREATE_TODO,
-    MARK_DONE,
-    DELETE_TODO,
-    ADD_TAG_TO_TODO,
-    REMOVE_TAG_FROM_TODO,
+    CREATE_DASHBOARD,
+    CREATE_PANEL,
+    CREATE_FILTER,
+    EDIT_DASHBOARD,
+    EDIT_PANEL,
+    EDIT_FILTER,
 } from './actionTypes';
+import dashboardJson from './data/dashboard';
 
-export const selectUser = id => {
+export const createDashboard = (dashboard) => {
+    const newDashboard = { ...dashboardJson, id: Date.now() };
     return {
-        type: SELECT_USER,
-        payload: id,
+        type: CREATE_DASHBOARD,
+        payload: newDashboard,
     };
 };
 
-export const createTodo = props => {
+export const createPanel = (panel) => {
     return {
-        type: CREATE_TODO,
-        payload: props,
+        type: CREATE_PANEL,
+        payload: dashboard,
     };
 };
 
-export const markDone = id => {
+export const createFilter = (filter) => {
     return {
-        type: MARK_DONE,
-        payload: id,
+        type: CREATE_FILTER,
+        payload: filter,
     };
 };
 
-export const deleteTodo = id => {
+export const editDashboard = (dashboard) => {
     return {
-        type: DELETE_TODO,
-        payload: id,
+        type: EDIT_DASHBOARD,
+        payload: dashboard,
     };
 };
 
-export const addTagToTodo = (todo, tag) => {
+export const editPanel = (panel) => {
     return {
-        type: ADD_TAG_TO_TODO,
-        payload: {
-            todo,
-            tag,
-        },
+        type: EDIT_PANEL,
+        payload: dashboard,
     };
 };
 
-export const removeTagFromTodo = (todo, tag) => {
+export const editFilter = (filter) => {
     return {
-        type: REMOVE_TAG_FROM_TODO,
-        payload: {
-            todo,
-            tag,
-        },
+        type: EDIT_FILTER,
+        payload: filter,
     };
 };
